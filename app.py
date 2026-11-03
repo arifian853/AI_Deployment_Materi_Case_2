@@ -98,7 +98,10 @@ def readiness(request: Request) -> list[str]:
         problems.append("GROQ_API_KEY belum dikonfigurasi")
     return problems
 
-
+@app.get("/")
+def root():
+    return {"message": "Welcome to the Case 2 CS Chatbot API!"}
+    
 @app.get("/health")
 def health(request: Request):
     problems = readiness(request)
